@@ -1,7 +1,6 @@
 pragma solidity ^0.8.0;
 // SPDX-License-Identifier: MIT
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -10,8 +9,6 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 /// For more information about this token please visit https://combo.io
 
 contract ComboToken is ERC20, Pausable, Ownable {
-    using SafeMath for uint256;
-
     /// Constant token specific fields
     uint256 public constant MAX_SUPPLY = 100000000 * (10 ** 18);
 
@@ -67,7 +64,7 @@ contract ComboToken is ERC20, Pausable, Ownable {
         address to,
         uint256 value
     ) internal override {
-        if (paused() == true) {
+        if (paused()) {
             // only white list pass
             require(
                 whiteAccountMap[msg.sender],
@@ -111,7 +108,7 @@ contract ComboToken is ERC20, Pausable, Ownable {
     ) external validAddress(account) {
         require(_minters[msg.sender], "!minter");
 
-        uint256 newMintSupply = totalSupply().add(amount);
+        uint256 newMintSupply = totalSupply() + amount;
         require(newMintSupply <= MAX_SUPPLY, "supply is max!");
 
         _mint(account, amount);
