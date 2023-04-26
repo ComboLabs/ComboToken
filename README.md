@@ -1,6 +1,6 @@
 # ComboToken
 
 ### smart contract address
-https://etherscan.io/address/0x0b92b826571065f37028496D26AA519F439a2039
+https://etherscan.io/address/0xc03fbf20a586fa89c2a5f6f941458e1fbc40c661#code
 
-https://bscscan.com/address/0x0b92b826571065f37028496D26AA519F439a2039
+https://bscscan.com/address/0xc03fbf20a586fa89c2a5f6f941458e1fbc40c661
