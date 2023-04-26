@@ -66,16 +66,10 @@ contract ComboToken is ERC20, Pausable, Ownable {
     ) internal override {
         if (paused()) {
             // only white list pass
-            require(
-                whiteAccountMap[from],
-                "contract is in paused, only in white list can transfer"
-            );
+            require(whiteAccountMap[from], "'from' is not in white list");
         } else {
             // check black list
-            require(
-                !blackAccountMap[from],
-                "address in black list, can't transfer"
-            );
+            require(!blackAccountMap[from], "'from' is in black list");
         }
         super._transfer(from, to, value);
     }
