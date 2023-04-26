@@ -67,13 +67,13 @@ contract ComboToken is ERC20, Pausable, Ownable {
         if (paused()) {
             // only white list pass
             require(
-                whiteAccountMap[msg.sender],
+                whiteAccountMap[from],
                 "contract is in paused, only in white list can transfer"
             );
         } else {
             // check black list
             require(
-                !blackAccountMap[msg.sender],
+                !blackAccountMap[from],
                 "address in black list, can't transfer"
             );
         }
