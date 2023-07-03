@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 /// @title ComboToken Contract
-/// For more information about this token please visit https://combo.io
+/// For more information about this token please visit https://combonetwork.io/
 
 contract ComboToken is ERC20, Pausable, Ownable {
     /// Constant token specific fields
